@@ -31,3 +31,5 @@ return new class extends Migration
         Schema::dropIfExists('m_penjualan_detail');
     }
 };
+
+/**revisi nama commit */
