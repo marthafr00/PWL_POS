@@ -27,3 +27,5 @@ return new class extends Migration
         Schema::dropIfExists('m_kategori');
     }
 };
+
+/**revisi nama commit */
