@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\BarangModel;
 
 class BarangController extends Controller
 {
@@ -17,8 +18,7 @@ class BarangController extends Controller
         'harga_jual' => 12000,
         'created_at' => now()
         ];
-        DB::table('m_barang')->insert($data);
-        return 'Insert data baru berhasil';
+        BarangModel::insert($data);
 
         // $row = DB::table('m_barang')->where('barang_id', '11')->update(['barang_nama' => 'Makanan Bayi']);
         // return 'Update data berhasil. Jumlah data yang diupdate: ' . $row. ' baris';
@@ -28,5 +28,7 @@ class BarangController extends Controller
 
         // $data = DB::table('m_barang')->get();
         // return view('barang', ['data' => $data]);
+        $barang = BarangModel::all();
+        return view('barang', ['data' => $barang]);
     }
 }
