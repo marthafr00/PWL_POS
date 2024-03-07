@@ -10,15 +10,13 @@ use App\Models\UserModel;
 class UserController extends Controller
 {
     public function index(){
-        /*    $data = [
-            'user_id' => '5',
-            'level_id' => '4',
-            'username' => 'customer_1',
-            'nama' => 'Customer 1',
-            'password' => Hash::make('akucakep'),
-            'created_at' => now()
+            $data = [
+            'level_id' => '2',
+            'username' => 'manager_tiga',
+            'nama' => 'Manager 3',
+            'password' => Hash::make('hehehe'),
         ];
-        UserModel::insert($data); */
+        UserModel::insert($data);
 
         // $row = DB::table('m_user')->where('user_id', '4')->update(['username' => 'supervisor']);
         // return 'Update data berhasil. Jumlah data yang diupdate: ' . $row. ' baris';
@@ -29,10 +27,10 @@ class UserController extends Controller
         // $data = DB::table('m_user')->get();
         // return view('user', ['data' => $data]);
 
-            $data = [
+        /*    $data = [
             'nama' => 'Pelanggan Pertama',
         ];
-        UserModel::where('username', 'customer_1')->update($data);
+        UserModel::where('username', 'customer_1')->update($data); */
 
         $user = UserModel::all();
         return view('user', ['data' => $user]);
