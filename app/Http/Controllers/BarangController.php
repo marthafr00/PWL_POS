@@ -10,12 +10,12 @@ class BarangController extends Controller
 {
     public function index(){
         $data = [
-        'barang_id' => '11',
-        'kategori_id' => '9',
-        'barang_kode' => 'BBY',
-        'barang_nama' => 'Bubur Bayi',
-        'harga_beli' => 10000,
-        'harga_jual' => 12000,
+        'barang_id' => '12',
+        'kategori_id' => '6',
+        'barang_kode' => 'PSG',
+        'barang_nama' => 'Buah pisang 1kg',
+        'harga_beli' => 20000,
+        'harga_jual' => 25000,
         'created_at' => now()
         ];
         BarangModel::insert($data);
