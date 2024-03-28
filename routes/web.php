@@ -8,6 +8,7 @@ use App\Http\Controllers\BarangController;
 use App\Http\Controllers\StokController;
 use App\Http\Controllers\PenjualanController;
 use App\Http\Controllers\PenjualanDetailController;
+use App\Http\Controllers\WelcomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,10 +20,6 @@ use App\Http\Controllers\PenjualanDetailController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::get('/level', [LevelController::class, 'index']);
 
@@ -43,3 +40,5 @@ Route::get('/barang', [BarangController::class, 'index']);
 Route::get('/stok', [StokController::class, 'index']);
 Route::get('/penjualan', [PenjualanController::class, 'index']);
 Route::get('/detail', [PenjualanDetailController::class, 'index']);
+
+Route::get('/', [WelcomeController::class, 'index']);
