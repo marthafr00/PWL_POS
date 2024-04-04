@@ -3,7 +3,7 @@
     <div class="card card-outline card-primary">
         <div class="card-header">
             <h3 class="card-title">{{ $page->title }}</h3>
-            <div class="card-tools"> <a class="btn btn-sm btn-primary mt-1" href="{{ url('user/create') }}">Tambah</a> </div>
+            <div class="card-tools"> <a class="btn btn-sm btn-primary mt-1" href="{{ url('level/create') }}">Tambah</a> </div>
         </div>
         <div class="card-body">
             @if (session('success'))
@@ -28,13 +28,12 @@
                     </div>
                 </div>
             </div>
-            <table class="table table-bordered table-striped table-hover table-sm" id="table_user">
+            <table class="table table-bordered table-striped table-hover table-sm" id="table_level">
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Username</th>
+                        <th>Kode</th>
                         <th>Nama</th>
-                        <th>Level Pengguna</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -47,10 +46,10 @@
 @push('js')
     <script>
         $(document).ready(function() {
-            var dataUser = $('#table_user').DataTable({
+            var dataLevel = $('#table_level').DataTable({
                 serverSide: true, // serverSide: true, jika ingin menggunakan server side processing 
                 ajax: { 
-                    "url": "{{ url('user/list') }}", 
+                    "url": "{{ url('level/list') }}", 
                     "dataType": "json", 
                     "type": "POST",
                     "data": function(d){
@@ -63,22 +62,16 @@
                         orderable: false, 
                         searchable: false },
                     { 
-                        data: "username", 
+                        data: "level_kode", 
                         className: "", 
                         orderable: true, // orderable: true, jika ingin kolom ini bisa diurutkan 
                         searchable: true // searchable: true, jika ingin kolom ini bisa dicari 
                     },
                     { 
-                        data: "nama", 
+                        data: "level_nama", 
                         className: "", 
                         orderable: true, // orderable: true, jika ingin kolom ini bisa diurutkan 
                         searchable: true // searchable: true, jika ingin kolom ini bisa dicari 
-                    },
-                    { 
-                        data: "level.level_nama", 
-                        className: "", 
-                        orderable: false, // orderable: true, jika ingin kolom ini bisa diurutkan 
-                        searchable: false // searchable: true, jika ingin kolom ini bisa dicari 
                     },
                     { 
                         data: "aksi", 
@@ -90,7 +83,7 @@
             }); 
 
             $('#level_id').on('change', function(){
-                dataUser.ajax.reload();
+                dataLevel.ajax.reload();
             });
         });
     </script>
