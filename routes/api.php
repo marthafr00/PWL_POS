@@ -26,6 +26,7 @@ use App\Http\Controllers\Api\UserController;
 // });
 
 Route::post('/register', App\Http\Controllers\Api\RegisterController::class)->name('register');
+Route::post('/register1', App\Http\Controllers\Api\RegisterController::class)->name('register1');
 Route::post('/login', App\Http\Controllers\Api\LoginController::class)->name('login');
 Route::middleware('auth:api')->get('/user', function (Request $request){
     return $request->user();
@@ -52,6 +53,8 @@ Route::delete('categories/{kategori}', [KategoriController::class, 'destroy']);
 
 Route::get('items', [BarangController::class, 'index']);
 Route::post('items', [BarangController::class, 'store']);
+Route::post('items1', [BarangController::class, 'store']);
 Route::get('items/{barang}', [BarangController::class, 'show']);
+Route::get('items1/{barang}', [BarangController::class, 'show']);
 Route::put('items/{barang}', [BarangController::class, 'update']);
 Route::delete('items/{barang}', [BarangController::class, 'destroy']);
